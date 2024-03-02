@@ -1,1 +1,17 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+1. Sum called ... - This message is logged when the sum2DArray function is invoked for the first time.
+
+2. returning from sum - This message is logged immediately after the first function call, indicating that the function returns a Promise promptly, even before the asynchronous operation (inside setTimeout) begins.
+
+3. Sum called ... - This message is logged when the second invocation of sum2DArray is made.
+
+4. rejecting ... - This message is logged when the input to the second invocation of sum2DArray is not an array. Since the input is a string ('array2D') and not an array, the Promise is rejected.
+
+5. returning from sum - This message is logged after the rejection of the Promise in the second invocation.
+
+6. The rejected Promise returns the message 'BAD INPUT: Expected array as input'.
+
+7. resolving ... - This message is logged inside the setTimeout callback of the first invocation of sum2DArray. It indicates that the asynchronous operation is complete, and the Promise is resolved with the sum of the 2D array.
+
+8. 45 - This is the result of the first invocation of sum2DArray. The then callback is executed, logging the result of the resolved Promise, which is the sum of the 2D array [1, 2, 3], [4, 5, 6], [7, 8, 9], resulting in 45.
